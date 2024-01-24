@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { IncrementAction, /*increment*/ } from '../store/counter.actions';
 
-import { CounterService } from '../counter.service';
 
 @Component({
   selector: 'app-counter-controls',
@@ -8,13 +9,17 @@ import { CounterService } from '../counter.service';
   styleUrls: ['./counter-controls.component.css'],
 })
 export class CounterControlsComponent {
-  constructor(private counterService: CounterService) {}
+  // Injecting NgRx store instead of service
+  constructor(private store: Store) {}
 
   increment() {
-    this.counterService.increment();
+    // Calling the action from reducer and passing the value of the action
+    // this.store.dispatch(increment({value: 2}));
+
+    this.store.dispatch(new IncrementAction(2));
   }
 
   decrement() {
-    this.counterService.decrement();
+    
   }
 }
