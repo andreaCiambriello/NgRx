@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { IncrementAction, /*increment*/ } from '../store/counter.actions';
+import { /*IncrementAction,*/ decrement, increment } from '../store/counter.actions';
 
 
 @Component({
@@ -14,12 +14,13 @@ export class CounterControlsComponent {
 
   increment() {
     // Calling the action from reducer and passing the value of the action
-    // this.store.dispatch(increment({value: 2}));
+    this.store.dispatch(increment({value: 2}));
 
-    this.store.dispatch(new IncrementAction(2));
+    // With the class approach:
+    // this.store.dispatch(new IncrementAction(2));
   }
 
   decrement() {
-    
+    this.store.dispatch(decrement({value: 2}))
   }
 }

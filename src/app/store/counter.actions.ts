@@ -1,19 +1,24 @@
 import { Action, createAction, props } from "@ngrx/store";
 
-// export const increment = createAction(
-//     '[Counter] Increment',              // action's key identifier
-//     props<{value: number}>()            // attaching data to actions
-// );
+export const increment = createAction(
+    '[Counter] Increment',              // action's key identifier
+    props<{value: number}>()            // attaching data to actions
+);
+
+export const decrement = createAction(
+    '[Conter] decrement',
+    props<{value: number}>()
+);
 
 // Un approccio alternativo utilizzato nelle versioni più vecchie di NgRx per dichiarare una action, che non prevede l'uso del 
 // metodo createAction è il seguente:
 
-export const INCREMENT = '[Counter] Increment'
+// export const INCREMENT = '[Counter] Increment'
 
-export class IncrementAction implements Action {
-    readonly type: string = INCREMENT;
+// export class IncrementAction implements Action {
+//     readonly type: string = INCREMENT;
 
-    constructor(public value: number) {}
-}
+//     constructor(public value: number) {}
+// }
 
-export type CounterActions = IncrementAction;
+// export type CounterActions = IncrementAction;
