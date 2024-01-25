@@ -1,13 +1,14 @@
 import { Action, createReducer, on } from "@ngrx/store";
 // import { CounterActions, INCREMENT, IncrementAction } from "./counter.actions";
-import { decrement, increment } from "./counter.actions";
+import { decrement, increment, set } from "./counter.actions";
 
 const initialState = 0;
 
 export const counterReducer = createReducer(
     initialState,
     on(increment, (state, action) => state + action.value),     // puntiamo alla action, dichiarata in counter.action e implementata qui
-    on(decrement, (state, action) => state - action.value)
+    on(decrement, (state, action) => state - action.value),
+    on(set, (state, action) => action.value)
 );
 
 // Un approccio alternativo utilizzato nelle versioni più vecchie di NgRx per dichiarare un reducer, che non prevede l'uso del 
